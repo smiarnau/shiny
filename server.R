@@ -9,9 +9,9 @@ library(shiny)
 
 diabetesRisk<-function(glucose, gen){
     if (gen == 'm')
-        glucose / 100
-    else
         glucose / 200
+    else
+        glucose / 300
 }
 
 shinyServer(function(input, output) {
