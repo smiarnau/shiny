@@ -18,11 +18,10 @@ shinyServer(function(input, output) {
 
   output$distPlot <- renderPlot({
 
-    # generate bins based on input$bins from ui.R
-    x    <- faithful[, 2]
+    # generate random data to draw the instagram
     x <- runif(1000, 1, 100)
 
-    # draw the histogram with the specified number of bins
+    # draw the histogram with the previous data
     hist(x, breaks = 20, col = 'darkgray', border = 'white', main="Diabetes population in Old Town by age")
 
   })

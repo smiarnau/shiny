@@ -13,7 +13,6 @@ shinyUI(pageWithSidebar(
   headerPanel("Diabetes prediction"),
   
   sidebarPanel(
-      #sliderInput("glucoseSlider", "Number of people with diabetes by year ", min = 1950, max = 2015, value = 1990),
       h4("Insert your index of glucose and your gender to calculate your diabetes risk: "),
       numericInput("glucose", "Glucose mg/dl", 90, min=50, max=200, step=5),
       radioButtons("gender", "Indicate your gender", c("Male" = "m", "Female"="f"), selected='m') ,
@@ -25,7 +24,7 @@ shinyUI(pageWithSidebar(
       h6("Men have a major risk than women.")
     ),
 
-    # Show a plot of the generated distribution
+    # Main Panel showing the results
     mainPanel(
       h3("Results of prediction"),
       h4("You entered"),
