@@ -13,14 +13,15 @@ shinyUI(pageWithSidebar(
   headerPanel("Diabetes prediction"),
   
   sidebarPanel(
-      h4("Insert your index of glucose and your gender to calculate your diabetes risk: "),
+      h4("Insert your index of glucose, age and your gender to calculate your diabetes risk: "),
       numericInput("glucose", "Glucose mg/dl", 90, min=50, max=200, step=5),
+      sliderInput("age", "Age :", min = 1, max = 100, value = 50),
       radioButtons("gender", "Indicate your gender", c("Male" = "m", "Female"="f"), selected='m') ,
       
       submitButton("Submit"),
       hr(),
       hr(),
-      h6("This application calculates de risk of having diabetes by just entering your glucose index and your gender."),
+      h6("This application calculates de risk of having diabetes by just entering your glucose index, your age and your gender."),
       h6("Men have a major risk than women.")
     ),
 

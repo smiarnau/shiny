@@ -7,11 +7,13 @@
 
 library(shiny)
 
-diabetesRisk<-function(glucose, gen){
+diabetesRisk<-function(glucose, gen, age){
     if (gen == 'm')
-        glucose / 200
+       gl <-  glucose / 200
     else
-        glucose / 300
+       gl <-  glucose / 300
+    
+     gl + age*gl/100
 }
 
 shinyServer(function(input, output) {
@@ -26,7 +28,7 @@ shinyServer(function(input, output) {
 
   })
   
-  output$inputValue <- renderPrint({input$glucose})
-  output$prediction <- renderPrint({diabetesRisk(input$glucose, input$gender)})
+  output$inputValue <- renderPrint({input$glucose}); renderPrint({input$age}) 
+  output$prediction <- renderPrint({diabetesRisk(input$glucose, input$gender, input$age)})
 
 })
